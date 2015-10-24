@@ -1,0 +1,31 @@
+{
+  "name": "ABTestProxy",
+  "version": "1.0.0",
+  "description": "Momentum 4.1 API proxy for A/B testing",
+  "main": "index.js",
+  "scripts": {
+    "dev": "NODE_ENV=dev node index.js",
+    "prod": "NODE_ENV=production node index.js",
+    "test": "grunt test"
+  },
+  "author": "Ewan Dennis <ewan.dennis@sparkpost.com>",
+  "license": "Commercial",
+  "dependencies": {
+    "config": "^1.10.0",
+    "http-proxy": "^1.8.1",
+    "lodash": "^3.10.1",
+    "node-config": "0.0.2"
+  },
+  "devDependencies": {
+    "chai": "^3.3.0",
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.11.3",
+    "grunt-jscs": "^2.1.0",
+    "grunt-mocha-test": "^0.12.7",
+    "grunt-shell": "^1.1.2",
+    "jshint-stylish": "^2.0.1",
+    "matchdep": "^1.0.0",
+    "mocha": "^2.3.3",
+    "xunit-file": "0.0.8"
+  }
+}

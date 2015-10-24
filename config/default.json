@@ -1,0 +1,4 @@
+{
+  "targetEndpoint": "http://localhost:8000/",
+	"proxyPort": 9000
+}

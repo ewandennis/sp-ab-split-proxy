@@ -1,0 +1,35 @@
+{
+  "recipients": [
+    {
+      "address": {
+        "email": "ewan.dennis@sparkpost.com"
+      }
+    }
+  ],
+  "content": {
+    "html": "<b>This is a less than informative message</b>",
+    "text": "This is a less than informative message",
+    "subject": "Get Rich Quick",
+    "from": "ewan@richquick.kom",
+    "reply_to": "ewan@richquick.kom"
+  },
+  "return_path": "bounces@richquick.kom",
+  "campaign_id": "RichQuick",
+
+  "subrequests": [
+    {
+      "weight": 0.5,
+      "content": {
+        "subject": "Cheap Meds!"
+      },
+      "campaign_id": "RichQuick_A"
+    },
+    {
+      "weight": 0.5,
+      "content": {
+        "subject": "Inexpensive Xanax!"
+      },
+      "campaign_id": "RichQuick_B"
+    }
+  ]
+}

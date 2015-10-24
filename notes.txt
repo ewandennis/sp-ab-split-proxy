@@ -1,0 +1,52 @@
+Overview
+
+This is a REST API proxy for Momentum 4.1 that implements A/B testing.
+
+1. Client sends a group of weighted transmission requests (A, B, C, ...) to proxy
+2. Proxy selects a transmission request X using the weights
+3. Proxy sends transmission request X to Momentum
+
+The proxy supports testing of any field in the request and automatically mangles the 'campaign_id' field to indicate that an A/B test is in progress.
+
+The proxy will also allo non-A/B Transmission requests to pass through for easy addition and removal of A/B testing capability.
+
+Future Work
+
+Add a UI to manage stored overlay requests for a given campaign ID and template.
+
+Dependancies
+
+ - Node.js
+ - Express
+ - Momentum 4.1 with 'generation' enabled (or Sparkpost)
+
+Setup
+
+Edit config/production.json:
+ - set 'MomentumBaseURL' to your Momentum 4.1 API endpoint
+ - set 'APIKey' to an API key for your Momentum 4.1 instance
+
+Start the proxy service:
+
+	$ node MomentumABProxy.js
+
+Usage
+
+The proxy accepts a single full 'base' Transmission request and a set of 'sub-requests', each with a weighting.  The proxy selects a sub-request by weighting and builds the final request overlaying the selected sub-request onto the base request.  The proxy then sends the resulting Transmission request to Momentum for execution.
+
+POST /api/v1/transmissions
+{
+	// Transmission request fields common to all 'sub-requests'
+
+	// 
+	"subrequests": [
+		{
+			"weight": 0.5,
+			"req": { ... }
+		},
+		{
+			"weight": 0.5,
+			"req": { ... }
+		}
+	]
+}
