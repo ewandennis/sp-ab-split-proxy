@@ -1,14 +1,14 @@
 Overview
 
-This is a REST API proxy for Momentum 4.1 that implements A/B testing.
+This is a REST API proxy for SparkPost that implements A/B testing.  The usual workflow looks like this:
 
 1. Client sends a group of weighted transmission requests (A, B, C, ...) to proxy
-2. Proxy selects a transmission request X using the weights
-3. Proxy sends transmission request X to Momentum
+2. Proxy selects a transmission request X using the given weights
+3. Proxy sends transmission request X to SparkPost
 
-The proxy supports testing of any field in the request and automatically mangles the 'campaign_id' field to indicate that an A/B test is in progress.
+The proxy supports overriding of any field in the request and automatically mangles the 'campaign_id' field to indicate that an A/B test is in progress.
 
-The proxy will also allo non-A/B Transmission requests to pass through for easy addition and removal of A/B testing capability.
+The proxy will also allow non-A/B Transmission requests to pass through transparently for easy addition and removal of A/B testing capability.
 
 Future Work
 
